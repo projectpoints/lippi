@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lippia · Digital Agency</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Lippia is a premium digital agency delivering web, UI/UX, branding, SEO, and growth solutions with a luxury feel.">
+  <meta property="og:title" content="Lippia · Digital Agency">
+  <meta property="og:description" content="Modern, elegant, and high-converting digital experiences crafted with precision.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="#">
+  <meta name="theme-color" content="#0b1120">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f6f9fc; color: #0b1a2a; transition: background 0.3s, color 0.3s; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== DARK MODE ===== */
+    body.dark { background: #0b1120; color: #eef2f6; }
+    body.dark .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.08); }
+    body.dark .card { background: #151f2f; border-color: #2a3a4e; }
+    body.dark .footer { background: #060b16; }
+
+    /* ===== GLASS & GRADIENTS ===== */
+    .glass { background: rgba(255,255,255,0.5); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.25); border-radius: 32px; }
+    .gradient-text { background: linear-gradient(135deg, #7b4aff, #b47cff, #ff7eb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-primary { background: linear-gradient(135deg, #7b4aff, #a55eff); border: none; color: #fff; padding: 14px 32px; border-radius: 60px; font-weight: 600; transition: 0.3s; box-shadow: 0 8px 24px rgba(123,74,255,0.25); cursor: pointer; display: inline-block; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(123,74,255,0.4); }
+    .btn-outline { background: transparent; border: 1.5px solid #7b4aff; color: #7b4aff; padding: 12px 28px; border-radius: 60px; font-weight: 600; transition: 0.3s; cursor: pointer; display: inline-block; }
+    .btn-outline:hover { background: #7b4aff; color: #fff; }
+    .section-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .section-sub { font-size: 1.1rem; color: #5a6b7c; max-width: 640px; line-height: 1.6; }
+    body.dark .section-sub { color: #a0b3c9; }
+
+    /* ===== HEADER / NAV ===== */
+    .navbar { position: sticky; top: 0; z-index: 999; padding: 16px 0; background: rgba(246,249,252,0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+    body.dark .navbar { background: rgba(11,17,32,0.8); border-bottom-color: rgba(255,255,255,0.04); }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-weight: 500; font-size: 0.95rem; transition: 0.2s; }
+    .nav-links a:hover { color: #7b4aff; }
+    .nav-toggle { display: none; font-size: 1.6rem; background: none; border: none; color: inherit; cursor: pointer; }
+
+    /* ===== HERO ===== */
+    .hero { padding: 60px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.2rem; margin: 24px 0 32px; color: #2c3e50; max-width: 520px; }
+    body.dark .hero p { color: #b8cade; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stat { display: flex; gap: 40px; margin-top: 48px; }
+    .hero-stat span { font-weight: 700; font-size: 1.8rem; }
+    .hero-stat small { display: block; font-weight: 400; font-size: 0.9rem; color: #5a6b7c; }
+    body.dark .hero-stat small { color: #94a9c2; }
+
+    /* ===== CARDS & SECTIONS ===== */
+    .card { background: #ffffff; border-radius: 28px; padding: 28px 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.03); transition: 0.3s; border: 1px solid rgba(0,0,0,0.02); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
+    body.dark .card { background: #141e2e; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonial-card { background: #fff; border-radius: 24px; padding: 28px; border: 1px solid rgba(0,0,0,0.02); }
+    body.dark .testimonial-card { background: #141e2e; border-color: #29394b; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: #f0f4f9; padding: 60px 0 24px; margin-top: 60px; }
+    body.dark .footer { background: #060b16; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-bottom { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 24px; margin-top: 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .social-icons a { margin-right: 16px; font-size: 1.2rem; opacity: 0.7; transition: 0.2s; }
+    .social-icons a:hover { opacity: 1; color: #7b4aff; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .grid-4 { grid-template-columns: repeat(2,1fr); }
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 12px; background: #fff; padding: 24px; border-radius: 24px; position: absolute; top: 70px; right: 16px; width: 200px; box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+      body.dark .nav-links { background: #141e2e; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .grid-3, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stat { flex-wrap: wrap; gap: 20px; }
+    }
+    /* ===== ANIMATIONS ===== */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    /* ===== PAGE SECTIONS ===== */
+    section { padding: 60px 0; }
+    .bg-soft { background: rgba(123,74,255,0.02); }
+    body.dark .bg-soft { background: rgba(123,74,255,0.04); }
+    .pill { background: rgba(123,74,255,0.1); color: #7b4aff; padding: 6px 18px; border-radius: 60px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+    .mt-16 { margin-top: 16px; }
+    .mb-16 { margin-bottom: 16px; }
+    .gap-8 { gap: 8px; }
+    /* ===== CONTACT FORM ===== */
+    .form-group { margin-bottom: 18px; }
+    .form-group label { font-weight: 500; display: block; margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border-radius: 16px; border: 1px solid #dce3ec; background: #fff; transition: 0.2s; font-family: inherit; }
+    body.dark .form-group input, body.dark .form-group textarea, body.dark .form-group select { background: #1a2637; border-color: #2c3d52; color: #eef2f6; }
+    .form-group input:focus, .form-group textarea:focus { border-color: #7b4aff; outline: none; box-shadow: 0 0 0 4px rgba(123,74,255,0.12); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <header class="navbar">
+    <div class="container nav-flex">
+      <div class="logo">Lippia<span style="color:#7b4aff;">.</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#terms">Terms</a></li>
+        <li><a href="#cookie">Cookie</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- ===== HOME ===== -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">✦ Next-gen agency</span>
+        <h1>Premium digital <br><span class="gradient-text">experiences</span> for brands</h1>
+        <p>Lippia crafts websites, UI/UX, branding, and AI-driven growth solutions with elegance and precision.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Let’s talk</a>
+          <a href="#portfolio" class="btn-outline">View work</a>
+        </div>
+        <div class="hero-stat">
+          <div><span>4.9</span><small>Avg rating</small></div>
+          <div><span>320+</span><small>Projects</small></div>
+          <div><span>96%</span><small>Retention</small></div>
+        </div>
+      </div>
+      <div class="glass" style="padding:24px; text-align:center; min-height:280px; display:flex; align-items:center; justify-content:center; flex-direction:column;">
+        <i class="fas fa-rocket" style="font-size:4rem; color:#7b4aff;"></i>
+        <p style="margin-top:16px; font-weight:600;">Innovation meets design</p>
+        <span style="opacity:0.6;">We build digital excellence.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="bg-soft">
+    <div class="container">
+      <div class="fade-up"><span class="pill">About</span><h2 class="section-title">Who we are</h2></div>
+      <div class="grid-2" style="margin-top:24px;">
+        <div class="card"><h3>Our story</h3><p>Founded in 2020, Lippia is a collective of designers, engineers, and strategists devoted to crafting digital identities that resonate. We blend creativity with data to deliver measurable impact.</p></div>
+        <div class="card"><h3>Mission & Vision</h3><p><strong>Mission:</strong> Empower brands with frictionless digital experiences. <br><strong>Vision:</strong> To be the gold standard for premium digital agency services globally.</p></div>
+        <div class="card"><h3>Core values</h3><p>⚡ Excellence · 🤝 Transparency · 🎨 Creativity · 📈 Growth · 🌍 Inclusivity</p></div>
+        <div class="card"><h3>Why clients choose us</h3><p>We combine strategy, design, and technology to deliver solutions that outperform expectations. 96% client satisfaction.</p></div>
+      </div>
+      <div style="margin-top:32px; display:flex; gap:20px; flex-wrap:wrap;">
+        <div class="glass" style="padding:20px 32px;"><strong>320+</strong> projects</div>
+        <div class="glass" style="padding:20px 32px;"><strong>4.9</strong> average rating</div>
+        <div class="glass" style="padding:20px 32px;"><strong>97%</strong> referral rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services">
+    <div class="container">
+      <div class="fade-up"><span class="pill">Services</span><h2 class="section-title">What we deliver</h2></div>
+      <div class="grid-3" style="margin-top:24px;">
+        <div class="card"><i class="fas fa-code" style="font-size:2rem; color:#7b4aff;"></i><h3>Web Development</h3><p>Custom websites, e‑commerce, and web apps with premium performance.</p><a href="#" class="btn-primary" style="margin-top:12px; padding:10px 20px; font-size:0.9rem;">Explore</a></div>
+        <div class="card"><i class="fas fa-paint-brush" style="font-size:2rem; color:#7b4aff;"></i><h3>UI/UX Design</h3><p>Human‑centered interfaces that convert. Wireframes, prototypes, design systems.</p><a href="#" class="btn-primary" style="margin-top:12px; padding:10px 20px; font-size:0.9rem;">Explore</a></div>
+        <div class="card"><i class="fas fa-bullhorn" style="font-size:2rem; color:#7b4aff;"></i><h3>Branding & Identity</h3><p>Logo, visual identity, brand guidelines – build a memorable brand story.</p><a href="#" class="btn-primary" style="margin-top:12px; padding:10px 20px; font-size:0.9rem;">Explore</a></div>
+        <div class="card"><i class="fas fa-chart-line" style="font-size:2rem; color:#7b4aff;"></i><h3>SEO & Digital Marketing</h3><p>Data‑driven SEO, PPC, content strategy to drive qualified traffic.</p><a href="#" class="btn-primary" style="margin-top:12px; padding:10px 20px; font-size:0.9rem;">Explore</a></div>
+        <div class="card"><i class="fas fa-robot" style="font-size:2rem; color:#7b4aff;"></i><h3>AI Automation</h3><p>Intelligent automation, chatbots, and AI‑powered business solutions.</p><a href="#" class="btn-primary" style="margin-top:12px; padding:10px 20px; font-size:0.9rem;">Explore</a></div>
+        <div class="card"><i class="fas fa-mobile-alt" style="font-size:2rem; color:#7b4aff;"></i><h3>Mobile App Dev</h3><p>Native and cross‑platform apps with sleek UI and robust performance.</p><a href="#" class="btn-primary" style="margin-top:12px; padding:10px 20px; font-size:0.9rem;">Explore</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section id="portfolio" class="bg-soft">
+    <div class="container">
+      <div class="fade-up"><span class="pill">Portfolio</span><h2 class="section-title">Recent work</h2></div>
+      <div class="grid-3" style="margin-top:24px;">
+        <div class="card" style="padding:16px;"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='240' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%237b4aff20'/%3E%3Ctext x='50' y='130' font-family='Inter' font-size='20' fill='%237b4aff'%3EProject Alpha%3C/text%3E%3C/svg%3E" style="width:100%; border-radius:16px;" alt="project"><h4>Fintech Dashboard</h4><p>UI/UX + Web app</p></div>
+        <div class="card" style="padding:16px;"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='240' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23b47cff20'/%3E%3Ctext x='50' y='130' font-family='Inter' font-size='20' fill='%23b47cff'%3EBrand Identity%3C/text%3E%3C/svg%3E" style="width:100%; border-radius:16px;" alt="project"><h4>Luxury Branding</h4><p>Branding & identity</p></div>
+        <div class="card" style="padding:16px;"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='240' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23ff7eb320'/%3E%3Ctext x='50' y='130' font-family='Inter' font-size='20' fill='%23ff7eb3'%3EE‑commerce%3C/text%3E%3C/svg%3E" style="width:100%; border-radius:16px;" alt="project"><h4>E‑commerce Suite</h4><p>Web dev + SEO</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing">
+    <div class="container">
+      <div class="fade-up"><span class="pill">Pricing</span><h2 class="section-title">Choose your plan</h2></div>
+      <div class="grid-3" style="margin-top:24px;">
+        <div class="card"><h3>Starter</h3><p style="font-size:2rem; font-weight:700;">$1.2k</p><ul style="margin:16px 0;"><li>✓ Website design</li><li>✓ 5 pages</li><li>✓ Basic SEO</li></ul><a href="#contact" class="btn-primary" style="padding:10px 24px;">Get started</a></div>
+        <div class="card" style="border:2px solid #7b4aff;"><h3>Growth</h3><p style="font-size:2rem; font-weight:700;">$3.4k</p><ul style="margin:16px 0;"><li>✓ UI/UX + Web dev</li><li>✓ 12 pages</li><li>✓ SEO & content</li></ul><a href="#contact" class="btn-primary" style="padding:10px 24px;">Start project</a></div>
+        <div class="card"><h3>Premium</h3><p style="font-size:2rem; font-weight:700;">$6.8k</p><ul style="margin:16px 0;"><li>✓ Full‑stack + AI</li><li>✓ E‑commerce</li><li>✓ Ongoing support</li></ul><a href="#contact" class="btn-primary" style="padding:10px 24px;">Let’s talk</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ===== -->
+  <section id="blog" class="bg-soft">
+    <div class="container">
+      <div class="fade-up"><span class="pill">Blog</span><h2 class="section-title">Insights</h2></div>
+      <div class="grid-3" style="margin-top:24px;">
+        <div class="card"><h4>2026 design trends</h4><p>Explore the future of UI/UX and brand expression.</p><a href="#" style="color:#7b4aff;">Read more →</a></div>
+        <div class="card"><h4>SEO that works</h4><p>Data‑backed strategies to rank higher in 2026.</p><a href="#" style="color:#7b4aff;">Read more →</a></div>
+        <div class="card"><h4>AI in business</h4><p>How automation boosts efficiency and growth.</p><a href="#" style="color:#7b4aff;">Read more →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="container">
+      <div class="fade-up"><span class="pill">Contact</span><h2 class="section-title">Let’s create something great</h2></div>
+      <div class="grid-2" style="margin-top:24px;">
+        <div>
+          <form id="contactForm" onsubmit="handleForm(event)" class="card">
+            <div class="form-row"><div class="form-group"><label>Full name</label><input type="text" id="name" placeholder="Jane Doe" required></div><div class="form-group"><label>Email</label><input type="email" id="email" placeholder="jane@company.com" required></div></div>
+            <div class="form-row"><div class="form-group"><label>Company</label><input type="text" id="company" placeholder="Your company"></div><div class="form-group"><label>Phone</label><input type="tel" id="phone" placeholder="+1 234 5678"></div></div>
+            <div class="form-row"><div class="form-group"><label>Service</label><select id="service"><option>Web Development</option><option>UI/UX Design</option><option>Branding</option><option>SEO</option><option>AI Automation</option></select></div><div class="form-group"><label>Budget</label><input type="text" id="budget" placeholder="$5k - $10k"></div></div>
+            <div class="form-group"><label>Message</label><textarea id="message" rows="4" placeholder="Tell us about your project..."></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;">Send message</button>
+            <div id="formStatus" style="margin-top:12px; font-weight:500;"></div>
+          </form>
+        </div>
+        <div>
+          <div class="card"><i class="fas fa-map-pin" style="color:#7b4aff;"></i><h4>Office</h4><p>123 Design St, San Francisco, CA</p></div>
+          <div class="card" style="margin-top:16px;"><i class="fas fa-clock" style="color:#7b4aff;"></i><h4>Hours</h4><p>Mon–Fri: 9am – 6pm PST</p></div>
+          <div class="card" style="margin-top:16px;"><i class="fas fa-envelope" style="color:#7b4aff;"></i><h4>Email</h4><p>hello@lippia.agency</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRIVACY, TERMS, COOKIE ===== -->
+  <section id="privacy" class="bg-soft"><div class="container"><h2 class="section-title">Privacy Policy</h2><p>Lippia collects personal data solely to provide services. We use cookies for analytics and functionality. Data is secured with encryption. You have the right to access, correct, or delete your data. GDPR compliant. For questions, contact privacy@lippia.agency.</p></div></section>
+  <section id="terms"><div class="container"><h2 class="section-title">Terms & Conditions</h2><p>By using Lippia services you accept these terms. All projects are subject to a signed agreement. Payments are due per invoice. Intellectual property rights remain with Lippia until full payment. Liability is limited to the project value. Refund policy: 14‑day satisfaction guarantee. Governed by California law.</p></div></section>
+  <section id="cookie" class="bg-soft"><div class="container"><h2 class="section-title">Cookie Policy</h2><p>We use essential and analytics cookies to improve your experience. You can manage preferences in your browser. By continuing you consent to our cookie usage.</p></div></section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h3>Lippia<span style="color:#7b4aff;">.</span></h3><p style="margin-top:8px; opacity:0.7;">Premium digital agency crafting elegant, high‑converting experiences.</p><div class="social-icons" style="margin-top:16px;"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-dribbble"></i></a><a href="#"><i class="fab fa-github"></i></a></div></div>
+        <div><h4>Explore</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li></ul></div>
+        <div><h4>Policies</h4><ul><li><a href="#privacy">Privacy</a></li><li><a href="#terms">Terms</a></li><li><a href="#cookie">Cookie</a></li></ul></div>
+        <div><h4>Contact</h4><p><i class="fas fa-phone"></i> +1 (415) 555‑0199</p><p><i class="fas fa-envelope"></i> hello@lippia.agency</p><div style="margin-top:12px;"><input type="email" placeholder="Your email" style="padding:10px 14px; border-radius:40px; border:1px solid #dce3ec; width:100%;"><button style="margin-top:8px; background:#7b4aff; border:none; color:#fff; padding:8px 16px; border-radius:40px;">Subscribe</button></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Lippia. All rights reserved.</span><span>Made with <i class="fas fa-heart" style="color:#ff7eb3;"></i> in SF</span></div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    // Dark mode toggle (optional)
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    // Contact form
+    function handleForm(e) {
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!name || !email) { status.innerHTML = '<span style="color:#e74c3c;">Please fill in name and email.</span>'; return; }
+      status.innerHTML = '<span style="color:#2ecc71;">✓ Thank you! We’ll be in touch shortly.</span>';
+      document.getElementById('contactForm').reset();
+    }
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+</html>
